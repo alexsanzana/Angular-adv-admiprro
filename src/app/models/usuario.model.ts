@@ -15,19 +15,15 @@ export class Usuario {
     ) { }
 
   get imagenUrl() {
-
-    // obtiene la imagen cuando es logueado con google
-    if ( this.img.includes('https')) {
+    if (!this.img) {
+      return `${ base_url }/upload/usuarios/no-image`;
+    } else if ( this.img.includes('https')) { // obtiene la imagen cuando es logueado con google
       return this.img;
-  }
-
-    // obtiene la imagen cuando es logueado con usuario y password.
-    if (this.img ) {
+   } else if (this.img ) { // obtiene la imagen cuando es logueado con usuario y password.
         return `${ base_url }/upload/usuarios/${this.img}`;
     } else {
       return `${ base_url }/upload/usuarios/no-image`;
     }
-
   }
 
 }
