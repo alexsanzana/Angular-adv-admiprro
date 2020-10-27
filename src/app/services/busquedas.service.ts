@@ -42,6 +42,10 @@ export class BusquedasService {
     return resultados;
   }
 
+  buscarGlobal( termino: string) {
+    const url = `${ base_url }/todo/${ termino }`;
+    return this.http.get( url, this.headers );
+  }
 
   buscar( tipo: 'usuarios'|'medicos'|'hospitales', termino: string ) {
     const url = `${ base_url }/todo/colecion/${ tipo }/${ termino }`;
